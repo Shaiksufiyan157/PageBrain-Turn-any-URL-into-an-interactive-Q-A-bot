@@ -1,0 +1,14 @@
+langchain
+langchain-community
+langchain-openrouter
+python-dotenv
+streamlit
+langchain-experimental
+sentence-transformers
+langchain-chroma
+langchainhub
+unstructured
+langchain-text-splitters
+langchain-classic
+langchain-core
+langchain-huggingface
