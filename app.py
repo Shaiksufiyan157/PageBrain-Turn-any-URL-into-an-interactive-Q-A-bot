@@ -25,7 +25,7 @@ def get_vectorstore(url_input):
 
     # urls=["https://openai.com/"]
     # urls=[url_input]
-    loader = WebBaseLoader(urls=[url_input])
+    loader = WebBaseLoader(web_paths=[url])
     data = loader.load()
 
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=150)
