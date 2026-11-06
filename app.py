@@ -7,6 +7,7 @@ from langchain_classic.chains import create_retrieval_chain
 from langchain_classic.chains.combine_documents import create_stuff_documents_chain
 from langchain_core.prompts import ChatPromptTemplate
 from langchain_huggingface import HuggingFaceEmbeddings
+from langchain_community.document_loaders import WebBaseLoader
 from dotenv import load_dotenv
 load_dotenv()
 
@@ -19,12 +20,12 @@ url_input = st.text_input("Enter a URL to chat with:", placeholder="https://exam
 # data = loader.load()
 
 
-@st.cache_resource
+@st.cache_resource(show_spinner=False)
 def get_vectorstore(url_input):
 
     # urls=["https://openai.com/"]
     # urls=[url_input]
-    loader = UnstructuredURLLoader(urls=[url_input])
+    loader = WebBaseLoader(urls=[url_input])
     data = loader.load()
 
     text_splitter = RecursiveCharacterTextSplitter(chunk_size=1000, chunk_overlap=150)
